@@ -13,7 +13,7 @@ def tic_tac_toe_choose():
                 within_range = True
             else:
                 print('You entered an value that not in range of 0-9, please try again')
-
+                print('test')
 
 
 
