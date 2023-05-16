@@ -8,7 +8,7 @@ print(b/a)
 
 # (2)
 # #a,b,c will be ... at the end
-# a = 9, b = 8, c = 17
+# a = 9, b = 8, c = 15
 
 # (3)
 # There is no difference between "john" and 'john', both strings
