@@ -4,7 +4,7 @@ def welcome():
     print(f"Hello {name} and welcome to the World of Games (WoG).\nHere you can find many cool games to play.")
     return name
 
-def check_range(min_range,max_range):
+def check_range_with_try(min_range,max_range):
     flag = True
     while flag:
         try:
@@ -17,6 +17,20 @@ def check_range(min_range,max_range):
                 return number
             else:
                 print('Error! number not in the correct range')
+
+def check_range(min_range,max_range):
+    flag = True
+    number = input('Select the number: ')
+    while flag:
+        if number.isdigit() == True:
+            number = int(number)
+            if number >= min_range and number < max_range:
+                flag = False
+                return number
+            else:
+                number = input('Error, the number is out of range, please try again: ')
+        else:
+            number = input('Error, this is not a number, please try again: ')
 
 def load_game():
     min_range_games, max_range_games = 1,4
