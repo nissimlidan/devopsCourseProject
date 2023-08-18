@@ -4,13 +4,15 @@ def show_sequence(sequence):
     string_ints = [str(int) for int in sequence]
     str_of_ints = ",".join(string_ints)
     sys.stdout.write('\r' + str_of_ints)
-    time.sleep(3)
+    time.sleep(1)
 def hide_sequence():
     print('\r', end='')
 def generate_sequence(difficulty):
     '''
     Create random list of numbers. The Length is sum of difficulty with 2
     '''
+    print("\nBe ready, in 5 seconds the numbers will appear\n")
+    time.sleep(5)
     sequence_list = []
     for i in range(0, 2 + int(difficulty)):
         n = random.randint(1, 101)
