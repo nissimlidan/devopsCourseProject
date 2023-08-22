@@ -1,4 +1,4 @@
-properties([githubProjectProperty(displayName: '', projectUrlStr: 'https://github.com/Datsent/WorldOfGames.git/')])
+properties([githubProjectProperty(displayName: '', projectUrlStr: 'https://github.com/nissimlidan/devopsCourseProject.git/')])
 pipeline{
     agent any
     	environment {
@@ -8,16 +8,7 @@ pipeline{
     stages{
         stage('Checkout git repository'){
             steps{
-                git 'https://github.com/Datsent/WorldOfGames.git/'
-                //script {
-                //    //git 'https://github.com/Datsent/WorldOfGames.git'
-                //    if (isUnix()==true){
-                //        sh 'type README.md'
-                //    }
-                //    else{
-                //        bat 'type README.md'
-                //    }
-                //}
+                git 'https://github.com/nissimlidan/devopsCourseProject.git/'
                 echo 'Clone Git Project Done'
             }
         }
@@ -56,13 +47,13 @@ pipeline{
                     script {
                         try{
                             if (isUnix()==true){
-                                sh 'pip install -r Utils\\requirements.txt'
-                                sh 'python Utils\\e2e.py'
+                                sh 'pip install -r utils\\requirements.txt'
+                                sh 'python utils\\e2e.py'
                                 echo "Test PASSED"
                             }
                             else{
-                                bat 'pip install -r Utils\\requirements.txt'
-                                bat 'python Utils\\e2e.py'
+                                bat 'pip install -r utils\\requirements.txt'
+                                bat 'python utils\\e2e.py'
                                 echo "Test PASSED"
                             }
                         }
@@ -139,7 +130,7 @@ pipeline{
                             currentStage.result = "FAILURE"
                         }
                         else{
-                            sh 'docker push datsent/worldofgames'
+                            sh 'docker push nissimlidan/world_of_game_project'
                         }
                     }
                     else{
@@ -148,7 +139,7 @@ pipeline{
                             currentStage.result = "FAILURE"
                         }
                         else{
-                            bat 'docker push datsent/worldofgames'
+                            bat 'docker push nissimlidan/world_of_game_project'
                         }
                     }
                 }
@@ -159,11 +150,11 @@ pipeline{
             steps{
                 script {
                     if (isUnix()==true){
-                        sh 'docker rmi datsent/worldofgames'
+                        sh 'docker rmi nissimlidan/world_of_game_project'
                         echo "Local Image removed"
                     }
                     else{
-                        bat 'docker rmi datsent/worldofgames'
+                        bat 'docker rmi nissimlidan/world_of_game_project'
                         echo "Local Image removed"
                     }
                 }
